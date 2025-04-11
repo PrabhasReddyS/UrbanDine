@@ -1,3 +1,6 @@
+##Live Demo 
+https://urbandine-kzuom5ndunbburb2cahxjd.streamlit.app/
+
 ## UrbanDine
 
 UrbanDine is a simple Python-based command-line food ordering system.
