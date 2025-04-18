@@ -6,43 +6,35 @@ menu = {
     'Brownie': 70
 }
 
-# 🔥 Added DINE20 coupon
-
 print("🍔 Welcome to Urban Dine!\nHere's our menu:")
-for item in menu:
-    print(f"{item}: {menu[item]} Rs")
+for item, price in menu.items():
+    print(f"{item}: {price} Rs")
 
 orders = {}
 
-# 🛒 Ordering loop
+# Ordering loop
 while True:
     item = input("\nEnter item to order: ").title()
     if item in menu:
         qty = int(input(f"How many {item}s? "))
-        if item in orders:
-            orders[item] += qty
-        else:
-            orders[item] = qty
+        orders[item] = orders.get(item, 0) + qty
     else:
         print("❌ Item not on the menu.")
     
     if input("Order more? (y/n): ").lower() != 'y':
         break
 
-# 🧾 Show receipt
+# Summary
 if not orders:
     print("\n❌ No items ordered.")
 else:
     print("\n🧾 Order Summary:")
-    subtotal = 0
+    total = 0
     for item, qty in orders.items():
         price = menu[item]
-        total_price = price * qty
-        subtotal += total_price
-        print(f"{qty} x {item} @ {price} Rs = {total_price} Rs")
+        cost = price * qty
+        print(f"{qty} x {item} @ {price} Rs = {cost} Rs")
+        total += cost
 
-   
-    grand_total = subtotal 
-    print(f"\n💵 Subtotal: {subtotal} Rs")
-    print(f"🎉 Total to Pay: {int(grand_total)} Rs")
-    print("\n✨ Thanks for ordering with us!")
+    print(f"\n💰 Total to Pay: {total} Rs")
+    print("✨ Thanks for ordering with us!")
