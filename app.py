@@ -8,10 +8,6 @@ menu = {
     "Fries": 100
 }
 
-coupons = {
-    "URBAN10": 0.10,
-    "DINE20": 0.20
-}
 
 # Title and subheader
 st.title("UrbanDine - Food Ordering App")
@@ -40,16 +36,8 @@ if st.button("Place Order"):
         for item, qty, price in selected_items:
             st.write(f"{qty} x {item} @ ₹{price} = ₹{qty * price}")
         
-        # Apply coupon
-        discount = 0
-        if coupon_code:
-            if coupon_code in coupons:
-                discount = subtotal * coupons[coupon_code]
-                st.success(f"Coupon '{coupon_code}' applied! Discount: ₹{int(discount)}")
-            else:
-                st.error("Invalid coupon code.")
-
-        total = subtotal - discount
+      
+        total = subtotal
 
         # Final bill
         st.write(f"**Subtotal:** ₹{int(subtotal)}")
