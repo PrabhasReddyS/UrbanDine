@@ -7,10 +7,6 @@ menu = {
 }
 
 # 🔥 Added DINE20 coupon
-coupons = {
-    'URBAN10': 0.10,
-    'DINE20': 0.20
-}
 
 print("🍔 Welcome to Urban Dine!\nHere's our menu:")
 for item in menu:
@@ -45,17 +41,8 @@ else:
         subtotal += total_price
         print(f"{qty} x {item} @ {price} Rs = {total_price} Rs")
 
-    # 💸 Apply coupon
-    coupon = input("\nHave a coupon? (press Enter to skip): ").strip().upper()
-    discount = 0
-    if coupon:
-        if coupon in coupons:
-            discount = subtotal * coupons[coupon]
-            print(f"✅ Coupon '{coupon}' applied! You saved {int(discount)} Rs")
-        else:
-            print("⚠️ Invalid coupon code.")
-
-    grand_total = subtotal - discount
+   
+    grand_total = subtotal 
     print(f"\n💵 Subtotal: {subtotal} Rs")
     print(f"🎉 Total to Pay: {int(grand_total)} Rs")
     print("\n✨ Thanks for ordering with us!")
